@@ -1,73 +1,36 @@
-# Welcome to your Lovable project
+# E-commerce de Eletrônicos
 
-## Project info
+Este é um projeto de um **site de vendas de eletrônicos** completo, desenvolvido com **React.js**, **Node.js** e **MongoDB**. O site oferece uma experiência de compra online fluída e segura, com funcionalidades como cadastro e login de usuários, carrinho de compras, checkout, gerenciamento de produtos e painel administrativo.
 
-**URL**: https://lovable.dev/projects/77b09311-f141-43c1-9eeb-8b1348058c7b
+## Funcionalidades
 
-## How can I edit this code?
+- **Página Inicial:** Exibição de produtos com filtros de categoria e opção de adicionar ao carrinho.
+- **Detalhes do Produto:** Página com informações detalhadas de cada produto, avaliações de usuários e opção para compra.
+- **Login e Registro de Usuários:** Funcionalidade para login e registro de novos usuários com autenticação via JWT.
+- **Carrinho de Compras:** Permite adicionar, remover e editar a quantidade de produtos no carrinho, além de exibir o valor total.
+- **Checkout:** Página de finalização de compra com métodos de pagamento e confirmação de pedido.
+- **Painel Administrativo:** Dashboard para gerenciar produtos e pedidos, incluindo a possibilidade de editar informações, estoque e status de pedidos.
+- **Avaliações de Produtos:** Sistema de avaliação com estrelas, permitindo que usuários classifiquem os produtos que compraram.
 
-There are several ways of editing your application.
+## Tecnologias Usadas
 
-**Use Lovable**
+- **Front-End:** React.js, TailwindCSS
+- **Back-End:** Node.js, Express.js
+- **Banco de Dados:** MongoDB
+- **Autenticação:** JWT (Json Web Token)
+- **Controle de versão:** Git e GitHub
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/77b09311-f141-43c1-9eeb-8b1348058c7b) and start prompting.
+## Estrutura do Projeto
+/client # Diretório do Front-End (React.js)
+/src
+/components # Componentes reutilizáveis
+/pages # Páginas da aplicação
+/services # Funções de API
+/styles # Estilos (TailwindCSS)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/77b09311-f141-43c1-9eeb-8b1348058c7b) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+/server # Diretório do Back-End (Node.js)
+/controllers # Lógica de controle de rotas
+/models # Modelos de banco de dados (MongoDB)
+/routes # Rotas da API
+/middleware # Middleware de autenticação
+/config # Configuração do servidor e banco de dados
