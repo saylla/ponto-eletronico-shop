@@ -21,6 +21,11 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const { toast } = useToast();
 
+  // Verificar se a imagem existe e usar uma imagem fallback se necessário
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop";
+  };
+
   const addToCart = () => {
     // Implementação futura: Adicionar ao carrinho
     toast({
@@ -44,6 +49,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             src={product.image}
             alt={product.name}
             className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-300"
+            onError={handleImageError}
           />
           {product.oldPrice && (
             <div className="absolute top-2 left-2 bg-primary text-white px-2 py-1 rounded-md text-sm font-medium">

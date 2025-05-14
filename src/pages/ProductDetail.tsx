@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/layouts/Layout';
@@ -23,13 +22,16 @@ const ProductDetail = () => {
     .filter(p => p.category === product?.category && p.id !== id)
     .slice(0, 4);
   
+  // Fallback image
+  const fallbackImage = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop";
+  
   // Generate dummy additional images
   const additionalImages = [
-    product?.image,
+    product?.image || fallbackImage,
     'https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85?q=80&w=300',
     'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?q=80&w=300',
     'https://images.unsplash.com/photo-1612444530582-fc66183b16f3?q=80&w=300',
-  ].filter(Boolean) as string[];
+  ];
   
   if (!product) {
     return (
@@ -67,6 +69,10 @@ const ProductDetail = () => {
       style: 'currency', 
       currency: 'BRL' 
     }).format(price);
+  };
+  
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = fallbackImage;
   };
   
   return (
@@ -115,8 +121,9 @@ const ProductDetail = () => {
             <div className="bg-white rounded-lg overflow-hidden border border-gray-200 aspect-square flex items-center justify-center p-4">
               <img 
                 src={additionalImages[activeImageIndex]} 
-                alt={product.name}
+                alt={product?.name || "Product image"}
                 className="max-h-full max-w-full object-contain" 
+                onError={handleImageError}
               />
             </div>
             
@@ -131,8 +138,9 @@ const ProductDetail = () => {
                 >
                   <img 
                     src={image} 
-                    alt={`${product.name} - Imagem ${index + 1}`}
+                    alt={`${product?.name || "Product"} - Imagem ${index + 1}`}
                     className="max-h-full max-w-full object-contain" 
+                    onError={handleImageError}
                   />
                 </button>
               ))}
@@ -236,7 +244,7 @@ const ProductDetail = () => {
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>Recurso avançado de conectividade Bluetooth 5.0</li>
-              <li>Bateria de longa duração - até 24 horas de reprodução</li>
+              <li>Bateria de longa duração - até 24 horas de uso</li>
               <li>Resistente à água e poeira - classificação IP67</li>
               <li>Compatível com assistentes de voz</li>
               <li>Múltiplos dispositivos conectados simultaneamente</li>
